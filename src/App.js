@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function App() {
+function XLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,41 +26,33 @@ function App() {
       <h1>Login Page</h1>
       {isSubmitted ? (
         <div>
-          <p>Welcome {username}</p>
+          <p>Welcome, {username}!</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
           {err && <p className="err">{err}</p>}
 
           <div>
-            <label htmlFor='username'>
-              Username:
-              <input
-                type='text'
-                id='username'
-                placeholder='username'
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-                required
-              />
-            </label>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
           </div>
           <div>
-            <label htmlFor='password'>
-              Password:
-              <input
-                type='password'
-                id='password'
-                placeholder='password'
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                required
-              />
-            </label>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
           <div>
             <button type="submit">Submit</button>
@@ -71,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+export default XLogin;
